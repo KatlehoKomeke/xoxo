@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@stencil/sass": "^3.0.12"
+  }
+}
