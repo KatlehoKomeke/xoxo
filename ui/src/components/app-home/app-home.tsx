@@ -134,19 +134,19 @@ export class AppHome {
   }
   gameOver(event:Event){
     if(this.state.winner?.length > 0 && this.state.winner !== "="){
-      ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'none';
-      ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).style.display = 'grid';
-      console.log("?;",((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0]);
-      ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0].textContent = this.state.winner as string;
-      (((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0] as any).style.color = this.state.winner === "X" ? "rgb(0,255,41)" : "rgb(255,95,95)";
-      ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[1].textContent = " is the winner";
+      ((event.target as HTMLElement).parentElement.parentNode.childNodes[0] as HTMLElement).style.display = 'none';
+      ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'grid';
+      console.log("?;",((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0]);
+      ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0].textContent = this.state.winner as string;
+      (((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0] as any).style.color = this.state.winner === "X" ? "rgb(0,255,41)" : "rgb(255,95,95)";
+      ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[1].textContent = " is the winner";
       this.sprayConfetti()
     }else{
       if(this.state?.winner === "="){
-        ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'none';
-        ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).style.display = 'grid';
-        ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0].textContent = " ";
-        ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[1].textContent = "It's a draw"
+        ((event.target as HTMLElement).parentElement.parentNode.childNodes[0] as HTMLElement).style.display = 'none';
+        ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'grid';
+        ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0].textContent = " ";
+        ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[1].textContent = "It's a draw"
       }
     }
   }
@@ -168,13 +168,13 @@ export class AppHome {
       winner: null
     };
 
-    (event.target as HTMLElement).parentElement.parentNode.childNodes[1].childNodes.forEach((value)=>{
+    (event.target as HTMLElement).parentElement.parentNode.childNodes[0].childNodes.forEach((value)=>{
       const valueAsHTMLElement: HTMLElement = value as HTMLElement;
       valueAsHTMLElement.textContent = "";
       valueAsHTMLElement.style.backgroundColor = "rgb(217, 217, 217)"
     });
-    ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'grid';
-    ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).style.display = 'none';
+    ((event.target as HTMLElement).parentElement.parentNode.childNodes[0] as HTMLElement).style.display = 'grid';
+    ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'none';
   }
   sprayConfetti(){
     const colors = ['#aaaaaa', '#cccccc'];
