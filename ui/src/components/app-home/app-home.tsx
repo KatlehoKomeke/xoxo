@@ -1,5 +1,5 @@
-import { Component, Element, h, Host, State } from '@stencil/core';
-
+import { Component, h, Host, State } from '@stencil/core';
+import confetti from 'canvas-confetti';
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.scss',
@@ -73,7 +73,7 @@ export class AppHome {
       return ;
     }
     if((event.target as HTMLElement).textContent.length === 0){
-      (event.target as HTMLElement).style.backgroundColor = this.state.playerTurn === "O" ? "rgba(159,255,163,0.36)" : "rgba(255,95,95,0.36)"
+      (event.target as HTMLElement).style.backgroundColor = this.state.playerTurn === "O" ? "rgba(255,95,95,0.36)" : "rgba(159,255,163,0.36)"
     }
   }
   play(event:Event){
@@ -83,12 +83,12 @@ export class AppHome {
     if((event.target as HTMLElement).textContent.length === 0){
       if(this.state.playerTurn === "X"){
         (event.target as HTMLElement).textContent = "X";
-        (event.target as HTMLElement).style.color = "rgb(255,95,95)"
+        (event.target as HTMLElement).style.color = "rgb(0,255,41)"
         this.state.board[(event.target as HTMLElement).id] = this.state.playerTurn
         this.state.playerTurn = "O"
       }else if(this.state.playerTurn === "O"){
         (event.target as HTMLElement).textContent = "O";
-        (event.target as HTMLElement).style.color = "rgb(0,255,41)"
+        (event.target as HTMLElement).style.color = "rgb(255,95,95)"
         this.state.board[(event.target as HTMLElement).id] = this.state.playerTurn
         this.state.playerTurn = "X"
       }
@@ -137,8 +137,10 @@ export class AppHome {
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'none';
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).style.display = 'grid';
       console.log("?;",((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0]);
-      ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0].textContent = this.state.winner as string
+      ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0].textContent = this.state.winner as string;
+      (((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[0] as any).style.color = this.state.winner === "X" ? "rgb(0,255,41)" : "rgb(255,95,95)";
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).childNodes[0].childNodes[1].textContent = " is the winner";
+      this.sprayConfetti()
     }else{
       if(this.state?.winner === "="){
         ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'none';
@@ -173,5 +175,22 @@ export class AppHome {
     });
     ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'grid';
     ((event.target as HTMLElement).parentElement.parentNode.childNodes[2] as HTMLElement).style.display = 'none';
+  }
+  sprayConfetti(){
+    const colors = ['#aaaaaa', '#cccccc'];
+    confetti({
+      particleCount: 200,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+      colors: colors
+    });
+    confetti({
+      particleCount: 200,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 },
+      colors: colors
+    });
   }
 }

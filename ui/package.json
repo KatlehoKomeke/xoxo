@@ -18,5 +18,8 @@
     "jest-cli": "^29.7.0",
     "puppeteer": "^23.2.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "canvas-confetti": "^1.9.3"
+  }
 }
