@@ -140,11 +140,12 @@ export class AppRoot {
           <div id="stars4">o</div>
         </div>
         <main>
-          <stencil-router>
+          <app-home></app-home>
+          {/* <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url="/" component="app-home" exact={true} />
             </stencil-route-switch>
-          </stencil-router>
+          </stencil-router> */}
         </main>
       </div>
     );
