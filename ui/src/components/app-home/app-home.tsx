@@ -136,7 +136,6 @@ export class AppHome {
     if(this.state.winner?.length > 0 && this.state.winner !== "="){
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[0] as HTMLElement).style.display = 'none';
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).style.display = 'grid';
-      console.log("?;",((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0]);
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0].textContent = this.state.winner as string;
       (((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[0] as any).style.color = this.state.winner === "X" ? "rgb(0,255,41)" : "rgb(255,95,95)";
       ((event.target as HTMLElement).parentElement.parentNode.childNodes[1] as HTMLElement).childNodes[0].childNodes[1].textContent = " is the winner";
