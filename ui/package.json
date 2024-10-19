@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "Stencil App Starter",
   "scripts": {
+    "deploy": "firebase deploy",
     "build": "stencil build --prod",
     "start": "npm outdated && stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
